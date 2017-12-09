@@ -1,0 +1,59 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    letter-spacing: 4px;
+}
+
+.timezone {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px solid #333;
+    justify-content: space-between;
+    margin: 0 30px;
+}
+
+.zone-info {
+    flex-direction: column;
+    align-self: center;
+    margin: 0;
+}
+
+.title {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.day {
+    font-size: 0.8rem;
+    margin-top: -10px;
+
+}
+
+.time {
+    font-size: 2rem;
+    align-self: center;
+}
+
+@media (max-width: 321px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+}
