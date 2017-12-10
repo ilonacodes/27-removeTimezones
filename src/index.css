@@ -110,4 +110,20 @@ a {
     input {
         width: 80%;
     }
+
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    .has-add-icon {
+        margin-left: -2rem;
+    }
+
+    .add-icon {
+        right: 1rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
 }
