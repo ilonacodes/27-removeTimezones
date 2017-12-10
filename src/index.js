@@ -55,8 +55,14 @@ chosenTimezones.load();
 function renderDateForTimezone(timezone) {
     var date = new Date();
 
-    var hoursOffset = Math.floor(timezone.offset);
-    var minutesOffset = Math.floor((timezone.offset - hoursOffset) * 60);
+    var offset = timezone.offset;
+
+    if (timezone.isdst) {
+        offset--;
+    }
+    
+    var hoursOffset = Math.floor(offset);
+    var minutesOffset = Math.floor((offset - hoursOffset) * 60);
 
     var timezoneElem = document.createElement('div');
     containerElem.appendChild(timezoneElem);
