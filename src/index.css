@@ -17,6 +17,21 @@ h1 {
     letter-spacing: 4px;
 }
 
+.user-input {
+    display: flex;
+    justify-content: center;
+    margin: 2.5rem 0;
+}
+
+input {
+    width: 50%;
+    height: 30px;
+    font-size: 1rem;
+    padding-left: 10px;
+    outline: none;
+    border: 2px solid #ccc;
+}
+
 .timezone {
     display: flex;
     flex-direction: row;
@@ -48,12 +63,51 @@ h1 {
     align-self: center;
 }
 
+.timezone-option {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px solid #333;
+    font-size: 1.8rem;
+    justify-content: space-between;
+    margin: 10px 5rem;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+.add-icon {
+    position: fixed;
+    right: 2rem;
+    color: #000;
+}
+
 @media (max-width: 321px) {
     h1 {
-        font-size: 2rem;
+        font-size: 1.7rem;
+    }
+
+    .has-add-icon {
+        margin-left: -2rem;
+    }
+
+    .add-icon {
+        right: 1rem;
     }
 
     .title {
         font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 769px) {
+    .timezone-option {
+        margin: 0.75rem 2rem;
+        font-size: 1.4rem;
+    }
+
+    input {
+        width: 80%;
     }
 }

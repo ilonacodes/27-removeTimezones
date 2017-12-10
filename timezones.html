@@ -3,26 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>World Clock</title>
+    <title>Timezones</title>
     <link rel="stylesheet" href="src/index.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
 <a href="index.html">
-    <h1 class="has-add-icon">
-        <i class="fa fa-globe" aria-hidden="true"></i>
-        World Clock
-        <a href="timezones.html" class="add-icon">
-            <i class="fa fa-plus" aria-hidden="true"></i>
-        </a>
-    </h1>
+    <h1><i class="fa fa-globe" aria-hidden="true"></i> World Clock</h1>
 </a>
 
-<div class="container">
+<div class="user-input">
+    <input type="text" placeholder="Start typing your city to filter…">
+    <!--<i class="fa fa-search" aria-hidden="true"></i>-->
 </div>
+
+<div class="container"></div>
+
 <script src="src/chosenTimezones.js"></script>
 <script src="src/data.js"></script>
-<script src="src/index.js"></script>
+<script src="src/timezones.js"></script>
 </body>
 </html>

@@ -9,6 +9,8 @@ var weekdayElemHongKong = document.querySelector('[data-zone="hong-kong"] .day')
 var weekdayElemDubai = document.querySelector('[data-zone="dubai"] .day');
 var weekdayElemKiev = document.querySelector('[data-zone="kiev"] .day');
 
+var containerElem = document.querySelector('.container');
+
 function calculateTime(date, timezoneHours, timezoneMinutes) {
 
     var localDate = new Date(date);
@@ -29,13 +31,13 @@ function calculateTime(date, timezoneHours, timezoneMinutes) {
 
 function getWeekday(date, timezoneHours, timezoneMinutes) {
     var weekday = new Array(7);
-    weekday[0] =  "Sunday";
-    weekday[1] = "Monday";
-    weekday[2] = "Tuesday";
-    weekday[3] = "Wednesday";
-    weekday[4] = "Thursday";
-    weekday[5] = "Friday";
-    weekday[6] = "Saturday";
+    weekday[0] = 'Sunday';
+    weekday[1] = 'Monday';
+    weekday[2] = 'Tuesday';
+    weekday[3] = 'Wednesday';
+    weekday[4] = 'Thursday';
+    weekday[5] = 'Friday';
+    weekday[6] = 'Saturday';
 
     var localDate = new Date(date);
 
@@ -45,21 +47,49 @@ function getWeekday(date, timezoneHours, timezoneMinutes) {
     return weekday[localDate.getUTCDay()];
 }
 
-function renderDates() {
+var chosenTimezones = new ChosenTimezones();
+chosenTimezones.load();
+
+
+
+function renderDateForTimezone(timezone) {
     var date = new Date();
 
-    berlin.innerText = calculateTime(date, 1, 0);
-    newYork.innerText = calculateTime(date, -4, 0);
-    hongKong.innerText = calculateTime(date, 8, 0);
-    dubai.innerText = calculateTime(date, 4, 0);
-    kiev.innerText = calculateTime(date, 2, 0);
+    var hoursOffset = Math.floor(timezone.offset);
+    var minutesOffset = Math.floor((timezone.offset - hoursOffset) * 60);
 
-    weekdayElemBerlin.innerText = getWeekday(date, 1, 0);
-    weekdayElemNewYork.innerText = getWeekday(date, -4, 0);
-    weekdayElemHongKong.innerText = getWeekday(date, 8, 0);
-    weekdayElemDubai.innerText = getWeekday(date, 4, 0);
-    weekdayElemKiev.innerText = getWeekday(date, 2, 0);
+    var timezoneElem = document.createElement('div');
+    containerElem.appendChild(timezoneElem);
+    timezoneElem.classList.add('timezone');
 
+    var zoneInfoElem = document.createElement('div');
+    timezoneElem.appendChild(zoneInfoElem);
+    zoneInfoElem.classList.add('zone-info');
+
+    var titleElem = document.createElement('p');
+    zoneInfoElem.appendChild(titleElem);
+    titleElem.classList.add('title');
+    titleElem.innerText = timezone.city;
+
+    var dayElem = document.createElement('p');
+    zoneInfoElem.appendChild(dayElem);
+    dayElem.classList.add('day');
+    dayElem.innerText = getWeekday(date, hoursOffset, minutesOffset);
+
+
+    var timeElem = document.createElement('div');
+    timezoneElem.appendChild(timeElem);
+    timeElem.classList.add('time');
+    timeElem.innerText = calculateTime(date, hoursOffset, minutesOffset);
+
+}
+
+function renderDates() {
+    containerElem.innerHTML = '';
+
+    chosenTimezones.timezones.forEach(function (timezone) {
+        renderDateForTimezone(timezone);
+    });
 }
 
 renderDates();
