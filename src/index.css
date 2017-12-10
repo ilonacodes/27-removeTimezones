@@ -78,7 +78,7 @@ a {
 }
 
 .add-icon {
-    position: fixed;
+    position: absolute;
     right: 2rem;
     color: #000;
 }
