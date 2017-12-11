@@ -40,9 +40,6 @@ function renderTimezone(timezone) {
         chosenTimezones.add(timezone);
         location.replace('index.html');
     })
-    // click:
-    // 1. add to chosen
-    // 2. redirect to index.html
 }
 
 function renderTimezones(query) {

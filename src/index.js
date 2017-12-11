@@ -1,14 +1,3 @@
-var berlin = document.querySelector('[data-zone="berlin"] .time');
-var newYork = document.querySelector('[data-zone="new-york"] .time');
-var hongKong = document.querySelector('[data-zone="hong-kong"] .time');
-var dubai = document.querySelector('[data-zone="dubai"] .time');
-var kiev = document.querySelector('[data-zone="kiev"] .time');
-var weekdayElemBerlin = document.querySelector('[data-zone="berlin"] .day');
-var weekdayElemNewYork = document.querySelector('[data-zone="new-york"] .day');
-var weekdayElemHongKong = document.querySelector('[data-zone="hong-kong"] .day');
-var weekdayElemDubai = document.querySelector('[data-zone="dubai"] .day');
-var weekdayElemKiev = document.querySelector('[data-zone="kiev"] .day');
-
 var containerElem = document.querySelector('.container');
 
 function calculateTime(date, timezoneHours, timezoneMinutes) {
@@ -82,12 +71,20 @@ function renderDateForTimezone(timezone) {
     dayElem.classList.add('day');
     dayElem.innerText = getWeekday(date, hoursOffset, minutesOffset);
 
-
     var timeElem = document.createElement('div');
     timezoneElem.appendChild(timeElem);
     timeElem.classList.add('time');
     timeElem.innerText = calculateTime(date, hoursOffset, minutesOffset);
 
+    var removeLink = document.createElement('a');
+    timeElem.appendChild(removeLink);
+    removeLink.classList.add('remove');
+    removeLink.innerText = '-';
+
+    removeLink.addEventListener('click', function () {
+        chosenTimezones.remove(timezone);
+        renderDates();
+    })
 }
 
 function renderDates() {

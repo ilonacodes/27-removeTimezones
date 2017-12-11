@@ -8,6 +8,16 @@ ChosenTimezones.prototype.add = function (timezone) {
     this.save();
 };
 
+ChosenTimezones.prototype.remove = function (timezone) {
+    var index = this.timezones.indexOf(timezone);
+
+    if (index > -1) {
+        this.timezones.splice(index, 1);
+    }
+
+    this.save();
+};
+
 ChosenTimezones.prototype.save = function () {
     localStorage.setItem('timezone', JSON.stringify({
         timezones: this.timezones,

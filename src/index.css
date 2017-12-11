@@ -63,6 +63,19 @@ input {
     align-self: center;
 }
 
+.remove-container {
+    font-size: 4rem;
+    align-self: center;
+}
+
+a.remove {
+    font-weight: 500;
+    margin-left: 1rem;
+    font-size: 3rem;
+    color: darkred;
+    cursor: pointer;
+}
+
 .timezone-option {
     display: flex;
     flex-direction: row;
